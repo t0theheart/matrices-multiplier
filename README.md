@@ -6,7 +6,6 @@
 Create program using multithreading to resolve problem. 
 
 ### Description:
-#### multiply_matrices
 **multiply_matrices** is a function which allow you to multiply two matrix.
 ```python
 from matrices_multiplier import multiply_matrices
