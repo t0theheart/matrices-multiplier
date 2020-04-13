@@ -51,6 +51,12 @@ while not all(result_matrix):
 return result_matrix
 ```
 
+To run tests:
+```bash
+$ python -m unittest tests
+```
+
+
 #### P.S
 Actually there is no true multithreading because of python GIL in this program. 
 But I tried to demonstrate basic principles of creating a multithreading program!
