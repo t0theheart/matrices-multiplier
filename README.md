@@ -2,8 +2,9 @@
 
 ## [OTUS](https://otus.ru) homework
 
-### Goal:
-Create program using multithreading to resolve problem. 
+### Goals:
+1. Create program using multithreading to resolve problem.
+2. Implement OOP pattern "Singleton".
 
 ### Description:
 **multiply_matrices** is a function which allow you to multiply two matrix.
@@ -48,6 +49,31 @@ while not all(result_matrix):
     pass
 
 return result_matrix
+```
+
+#### Singleton
+Singleton is implement in Logger class. Only one instance of this class will be while program is running.
+```python
+class Logger:
+    _instance = None
+
+    def __new__(cls):
+        if not cls._instance:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+```
+Every thread writes a message in the log.txt. Writing into file operation should lock others threads to write too.
+So **lock** object is here to acquire and release lock!
+```python
+lock = threading.Lock()
+
+with lock:
+    logger.write(f'thread №{x}: put this {result_matrix[x]} with index {x} in the result array')
+```
+
+To run program:
+```bash
+$ python start.py
 ```
 
 To run tests:

@@ -1,6 +1,11 @@
 from operator import mul, add
 from functools import reduce
 import threading
+from logger.logger import Logger
+
+
+logger = Logger()
+lock = threading.Lock()
 
 
 def multiply_matrices(matrix_1, matrix_2):
@@ -20,6 +25,8 @@ def multiply_matrices(matrix_1, matrix_2):
 
 def put_line_in_result(result_matrix, matrix_1, verticals_from_matrix_2, x):
     result_matrix[x] = calculate_line(matrix_1, verticals_from_matrix_2, x)
+    with lock:
+        logger.write(f'thread №{x}: put this {result_matrix[x]} with index {x} in the result array')
 
 
 def calculate_line(matrix_1, verticals_from_matrix_2, x):
