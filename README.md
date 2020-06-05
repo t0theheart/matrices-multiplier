@@ -30,6 +30,9 @@ multiply_matrices(matrix_1, matrix_2)
 # ]
 ```
 
+#### Class schema
+![](class_schema/matrices_multiplier.png)
+
 #### Multithreading
 There is a multithreadig logic for multiplication within. 
 Every line in result of **multiply_matrices** function calculates in separate thread which knows where it should put its calculated result. 
